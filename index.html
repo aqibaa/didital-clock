@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+
+<body>
+    <div class="flex">
+        <div id="day">
+        </div>
+        <div class="digital-clock">
+            <div class="time">
+                <div class="leftside">
+                    <span id="hours"></span>
+                </div>
+                <div class="rightside">
+                    <div class="righttop">
+                        <span class="dot">:</span>
+                        <span id="minutes"></span>
+                    </div>
+                    <div class="rightdown">
+                        <span id="period"></span>
+                        <span class="dot1">:</span>
+                        <spam id="second"></spam>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+
+        setInterval(() => {
+            const currenttime = new Date
+
+            let hrs = document.getElementById("hours")
+            let min = document.getElementById("minutes")
+            let sec = document.getElementById("second")
+            let period = document.getElementById("period")
+
+            let h = currenttime.getHours()
+            let m = currenttime.getMinutes()
+            let s = currenttime.getSeconds()
+
+            let ampm = h >= 12 ? "PM" : "AM"
+            if (h > 12) {
+                h = h - 12
+            }
+
+            hrs.innerHTML = (h < 10 ? "0" : "") + currenttime.getHours()
+            min.innerHTML = (m < 10 ? "0" : "") + currenttime.getMinutes()
+            sec.innerHTML = (s < 10 ? "0" : "") + currenttime.getSeconds()
+            period.innerHTML = ampm
+
+        }, 1000)
+
+
+        let current = new Date
+        const day = current.getDay()
+        const daylist = ['SUNDAY', 'MONADAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+        document.getElementById("day").innerHTML = `TODAY IS ${daylist[day]}.`
+    </script>
+</body>
+
+</html>
