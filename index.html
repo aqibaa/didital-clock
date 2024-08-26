@@ -31,12 +31,9 @@
             </div>
         </div>
     </div>
-    <script>
-
-
-
+    <script> 
         setInterval(() => {
-            const currenttime = new Date
+            const currenttime = new Date()
 
             let hrs = document.getElementById("hours")
             let min = document.getElementById("minutes")
@@ -48,22 +45,29 @@
             let s = currenttime.getSeconds()
 
             let ampm = h >= 12 ? "PM" : "AM"
+
             if (h > 12) {
                 h = h - 12
             }
 
-            hrs.innerHTML = (h < 10 ? "0" : "") + currenttime.getHours()
-            min.innerHTML = (m < 10 ? "0" : "") + currenttime.getMinutes()
-            sec.innerHTML = (s < 10 ? "0" : "") + currenttime.getSeconds()
-            period.innerHTML = ampm
+            h = (h < 10) ? "0" + h : h;
+
+            m = (m < 10) ? "0" + m : m;
+
+            s = (s < 10) ? "0" + s : s
+
+            hrs.innerHTML = h;
+            min.innerHTML = m;
+            sec.innerHTML = s;
+            period.innerHTML = ampm;
 
         }, 1000)
 
 
-        let current = new Date
-        const day = current.getDay()
+        let current = new Date();
+        const day = current.getDay();
         const daylist = ['SUNDAY', 'MONADAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
-        document.getElementById("day").innerHTML = `TODAY IS ${daylist[day]}.`
+        document.getElementById("day").innerHTML = `TODAY IS ${daylist[day]}.`;
     </script>
 </body>
 
